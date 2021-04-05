@@ -60,12 +60,12 @@ class DatabaseHelper{
     return result;
   }
   Future<int> updateNote (Note note) async {
-    Database db = await this.database;
+    var db = await this.database;
     var result = await db.update(noteTable, note.ToMap(),where: '$colId = ?',whereArgs: [note.id]);
     return result;
   }
   Future<int> deleteNote(int id) async{
-    Database db = await this.database;
+    var db = await this.database;
     var result = await db.rawDelete('DELETE FROM $noteTable WHERE $colId = $id');
     return result;
   }

@@ -76,7 +76,7 @@ class _NoteDetailState extends State<NoteDetail>{
                 onChanged: (valueSelectedByUser){
                   setState(() {
                     debugPrint('User Selected $valueSelectedByUser');
-                    updateriorityAsInt(valueSelectedByUser);
+                    updatepriorityAsInt(valueSelectedByUser);
                   });
                 }
               )
@@ -168,7 +168,7 @@ class _NoteDetailState extends State<NoteDetail>{
     Navigator.pop(context,true);
   }
 
-  void updateriorityAsInt(String value){
+  void updatepriorityAsInt(String value){
     switch(value){
       case 'High':
         note.priority = 1;
@@ -205,7 +205,7 @@ class _NoteDetailState extends State<NoteDetail>{
     note.date = DateFormat.yMMMd().format(DateTime.now());
 
     int result;
-    if(note.id != 0){
+    if(note.id != null){
       result = await helper.updateNote(note);
     }else{
       result = await helper.insertNote(note);
